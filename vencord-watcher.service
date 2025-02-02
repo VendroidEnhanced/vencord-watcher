@@ -1,0 +1,11 @@
+[Unit]
+Description=vencord-watcher
+Wants=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/node --env-file-if-exists=.env /home/nin0/vencord-watcher/index.mjs
+WorkingDirectory=/home/nin0/vencord-watcher
+
+[Install]
+WantedBy=multi-user.target

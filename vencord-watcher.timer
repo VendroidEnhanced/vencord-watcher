@@ -1,0 +1,10 @@
+[Unit]
+Description=vencord-watcher
+Requires=vencord-watcher.service
+
+[Timer]
+Unit=vencord-watcher.service
+OnCalendar=*-*-* *:*:00
+
+[Install]
+WantedBy=timers.target
