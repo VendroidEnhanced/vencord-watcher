@@ -32,7 +32,7 @@ if (existsSync("last_commit")) {
 	}
 }
 
-fetch(
+await fetch(
 	"https://api.github.com/repos/VendroidEnhanced/plugin/actions/workflows/build.yml/dispatches",
 	{
 		method: "POST",
@@ -43,14 +43,10 @@ fetch(
 			ref: "main"
 		})
 	}
-).then(() => {
-	process.exit(0);
-});
+);
 
 rmSync("Vencord/", {
 	recursive: true,
 	force: true
 });
 writeFileSync("last_commit", commitInfo);
-
-setInterval(() => {}, 100);
